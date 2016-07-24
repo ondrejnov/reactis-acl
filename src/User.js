@@ -24,6 +24,9 @@ export default class User {
 	}
 
 	isAllowed(resources, permission) {
+		if (this.acl == null) {
+			return true;
+		}
 		return this.acl.isAllowed(this.roles, resources, permission);
 	};
 }
